@@ -2,9 +2,9 @@ $(document).ready(function () {
     ChamarRepositorios();
     ChamarUsuario();
 });
-
+var usuario = "machado6";
 function ChamarRepositorios(){
-    $.getJSON("https://api.github.com/users/machado6/repos",function (data) 
+    $.getJSON("https://api.github.com/users/"+ usuario +"/repos",function (data) 
     {
         var txt = '';
          $.each(data, function () { 
@@ -22,7 +22,7 @@ function ChamarRepositorios(){
 function ChamarUsuario(){
     var img = '';
     var login = '';
-    $.getJSON("https://api.github.com/users/machado6", function (data) {
+    $.getJSON("https://api.github.com/users/"+ usuario, function (data) {
          img = `${data.avatar_url}`;
          login = `Repositórios Git de ${data.name}`;
          $("#divImg").attr('src', img);
